@@ -81,7 +81,21 @@ function submitAlert() {
         alert("ACCESS DENIED: You must log in to submit a report.");
         return;
     }
+// --- 1. Map Setup ---
+const map = L.map('map').setView([40.7128, -74.0060], 13); // Default view (lat, lng, zoom)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+}).addTo(map);
 
+// Function to add markers when an alert is received or reported
+function addMarkerToMap(alert) {
+    L.marker([alert.latitude, alert.longitude]).addTo(map)
+        .bindPopup(`<b style="color:red">${alert.type}</b><br>${alert.description}`)
+        .openPopup();
+}
+
+// ... used inside submitAlert() and the WebSocket subscription ...
     const type = document.getElementById('type').value;
     const desc = document.getElementById('desc').value;
     const isAnon = document.getElementById('anon').checked;
