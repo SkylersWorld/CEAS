@@ -29,7 +29,16 @@
             <button onclick="handleLogout()">Logout</button>
         </div>
     </div>
+<div id="report-panel" class="panel" style="margin-top: 20px; opacity: 0.5;">
+    <h3 class="urgent">Report Incident</h3>
+    <input type="tel" id="reporter-phone" placeholder="Your Phone Number (For Confirmation SMS)">
 
+    <input type="text" id="incident-postal-code" placeholder="Your Postal Code (For Local Authority ID)">
+    
+    <p class="urgent">Location is tracked automatically.</p>
+    
+    <button class="btn-alert" id="submit-btn" onclick="submitAlert()" disabled>TRANSMIT ALERT</button>
+</div>
     <div class="container">
         <div id="report-panel">
             <h3>Report Incident</h3>
@@ -70,7 +79,11 @@
     
     <button class="btn-alert" id="submit-btn" onclick="submitAlert()" disabled>TRANSMIT ALERT</button>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
