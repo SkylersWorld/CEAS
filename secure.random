@@ -50,11 +50,11 @@ public void initiatePasswordReset(String email) {
     String verificationCode = SecurityCodeGenerator.generateVerificationCode(); 
 
     // 3. Store the code and its expiry time in the database 
-    //    (e.g., user.setResetCode(verificationCode); user.setResetCodeExpiry(LocalDateTime.now().plusMinutes(10));)
+       user.setResetCode(verificationCode; user.setResetCodeExpiry(LocalDateTime.now().plusMinutes(10));)
     
     // 4. Send the email 
-    //    (notificationService.sendVerificationEmail(email, verificationCode))
+      notificationService.sendVerificationEmail(email, verificationCode)
 
-    // ... continue with standard logging and response ...
+ 
 }
 }
