@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEAS | Emergency Alert System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+
+    <header>
+        <h1>Community <span class="urgent-text">Emergency</span> Alert System</h1>
+        <p>Status: <span id="system-status">System Operational</span></p>
+    </header>
+
+    <div id="auth-section">
+        <h3 class="urgent-text">Identity Verification</h3>
+        
+        <div id="login-form">
+            <input type="email" id="email" placeholder="Email Address (Required for Verification)">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="handleLogin()">Log In Securely</button>
+            <p style="font-size: 0.8rem;"> <a href="#" onclick="alert('Reset link sent to email.')">Forgot Password?</a></p>
+        </div>
+
+        <div id="user-panel" style="display:none;">
+            <p>Welcome, <span id="display-name">Citizen</span></p>
+            <button onclick="handleLogout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="report-panel">
+            <h3>Report Incident</h3>
+            <p>Please provide accurate details. Abuse of this system is a federal offense.</p>
+            
+            <select id="incident-type">
+                <option value="FIRE">Fire</option>
+                <option value="FLOOD">Flood</option>
+                <option value="MEDICAL">Medical Emergency</option>
+                <option value="VIOLENCE">Violence / Assault</option>
+                <option value="BURGLARY">Burglary</option>
+            </select>
+
+            <input type="text" id="incident-desc" placeholder="Describe the situation...">
+            <input type="text" id="reporter-name" placeholder="Name (Optional / Leave blank for Anonymous)">
+            
+            <p class="urgent-text">Location is tracked automatically.</p>
+            
+            <button onclick="submitReport()" class="urgent-text">TRANSMIT ALERT</button>
+        </div>
+
+        <div>
+            <h3>Live Situational Map</h3>
+            <div id="map"></div>
+            
+            <h3>Incoming Feed</h3>
+            <div id="feed-panel">
+                </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
